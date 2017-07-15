@@ -1,0 +1,22 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Add padding to fixed Bootstrap navbar thanks to
+// http://www.sitepoint.com/getting-sticky-headers-wordpress-admin-bar-behave/
+@mixin admin-sticky-fix( $offset: 0 ) {
+  $narrow-offset: 46px;
+  $wide-offset: 32px;
+  @if $offset != 0 and type-of($offset) == 'number' {
+    $narrow-offset: $narrow-offset + $offset;
+    $wide-offset: $wide-offset + $offset;
+  }
+  .admin-bar & {
+    top: $narrow-offset;
+    @media screen and (min-width: 783px) {
+      top: $wide-offset;
+    }
+  }
+}

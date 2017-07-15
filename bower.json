@@ -1,0 +1,8 @@
+{
+  "name": "np011-child",
+  "version": "1.0.0",
+  "devDependencies": {},
+  "dependencies": {
+    "mcgriddle": "^0.5.0"
+  }
+}
