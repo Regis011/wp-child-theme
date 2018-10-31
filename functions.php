@@ -29,6 +29,15 @@ function np011_child_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'np011_child_scripts' );
 
+function np011_child_customizer(){
+  wp_register_script( 'customizer', get_stylesheet_directory_uri() . '/js/customizer.js', array(), null, true);
+
+  wp_enqueue_script('customizer');
+}
+add_action( 'customize_preview_init', 'np011_child_customizer' );
+
+
+
 
 /**
  * Setup Child Theme's textdomain.

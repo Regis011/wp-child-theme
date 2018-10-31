@@ -68,7 +68,7 @@
     noscroll,
     isAnimating,
     container = document.getElementById( 'container' ),
-    trigger = container.querySelector( 'button.trigger' );
+    trigger = container ? container.querySelector( 'button.trigger' ) : false;
 
   function scrollY() {
     return window.pageYOffset || docElem.scrollTop;
@@ -136,5 +136,7 @@
   }
 
   window.addEventListener( 'scroll', scrollPage );
-  trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
+  if(trigger){
+    trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
+  }
 })();
