@@ -4,7 +4,6 @@ var gulp = require( 'gulp' ),
   autoprefixer = require('gulp-autoprefixer'),
   watch = require( 'gulp-watch' ),
   livereload = require( 'gulp-livereload' ),
-  minifycss = require( 'gulp-minify-css' ),
   jshint = require( 'gulp-jshint' ),
   stylish = require( 'jshint-stylish' ),
   uglify = require( 'gulp-uglify' ),
@@ -13,16 +12,10 @@ var gulp = require( 'gulp' ),
   include = require( 'gulp-include' ),
   sass = require( 'gulp-sass' ),
   imagemin = require('gulp-imagemin'),
-  bower = require('gulp-bower'),
   cleanCSS = require('gulp-clean-css'),
   concatCss = require('gulp-concat-css'),
   concat = require('gulp-concat'),
   sourcemaps = require('gulp-sourcemaps');
-
-
-var config = {
-     bowerDir: './bower_components' 
-}
 
 
 // Default error handler
@@ -30,12 +23,6 @@ var onError = function( err ) {
   console.log( 'An error occured:', err.message );
   this.emit('end');
 }
-
-// Install all Bower components
-gulp.task('bower', function() {
-  return bower()
-    .pipe(gulp.dest(config.bowerDir))
-});
 
 //fontawesome
 // gulp.task('icons', function() { 
@@ -72,9 +59,9 @@ gulp.task('custom-scripts', function() {
 gulp.task( 'scripts', ['custom-scripts'], function() {
   return gulp.src( './js/manifest.js' )
     .pipe(sourcemaps.init())
-    .pipe( include() )
-    .pipe( rename( { basename: 'scripts' } ) )
-    .pipe( gulp.dest( './js/dist' ) )
+    .pipe(include())
+    .pipe(rename({ basename: 'scripts' }))
+    .pipe(gulp.dest('./js/dist'))
     // Normal done, time to create the minified javascript (scripts.min.js)
     // remove the following 3 lines if you don't want it
     .pipe( uglify() )
@@ -97,7 +84,7 @@ options.sass = {
   imagePath: 'assets/img',
   // include bootstrap and fontawesome to SASS folder
    includePaths: [
-     config.bowerDir + '/mcgriddle/_sass/mcgriddle/'
+  // config.bowerDir + '/mcgriddle/_sass/mcgriddle/'
   //   config.bowerDir + '/bootstrap-sass/assets/stylesheets',
   //   config.bowerDir + '/fontawesome/scss',
   ],
@@ -116,7 +103,7 @@ gulp.task('sass', function() {
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4',
       options.autoprefixer
       ))
-    .pipe( minifycss() )
+    .pipe( cleanCSS() )
     .pipe( rename( { suffix: '.min' } ) )
     .pipe(sourcemaps.write())
     .pipe( gulp.dest( '.' ) )
@@ -127,7 +114,7 @@ gulp.task('sass', function() {
 gulp.task('style', function() {
   return gulp.src(['css/**/*.css', 'css/*.css'])
     .pipe(concatCss("custom.css"))
-    .pipe( minifycss() )
+    .pipe( cleanCSS() )
     .pipe( rename( {
       prefix: "style.",
       basename: 'custom',
@@ -166,4 +153,4 @@ gulp.task( 'dev', function() {
 } );
 
 
-gulp.task( 'default', ['bower', 'scripts','sass','style','images']);
+gulp.task( 'default', ['scripts','sass','style','images']);
