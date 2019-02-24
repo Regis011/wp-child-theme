@@ -1,5 +1,7 @@
 # wp-child-theme starter
 
+ATTENTION! We recommend that you use our version 2 with webpack [here](https://github.com/Regis011/wp-child-theme-v2)
+
 **Wordpress Child Theme starter with npm + Gulp**
 
 **by**: Vladimir Rancic [@VladimirXRegis](https://twitter.com/VladimirXRegis)
