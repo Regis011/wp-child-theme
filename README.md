@@ -25,4 +25,4 @@
 - [Gulp + Bower starter](https://github.com/Regis011/my_gulp_bower_bootstrap_starter)
 
 **Check this! We have build version 2**
-Version 2 of wp child themes are with webpack and DOM-based Routing for JavaScript. [Click here](https://github.com/Regis011/wp-child-theme-v2)Click here
+Version 2 of wp child themes are with webpack and DOM-based Routing for JavaScript. [Click here](https://github.com/Regis011/wp-child-theme-v2)
