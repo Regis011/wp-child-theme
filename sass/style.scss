@@ -4,7 +4,7 @@ Theme URI: https://github.com/Regis011/wp-child-theme
 Author: Vladimir Rancic
 Author URI: https://twitter.com/vladimirxregis
 Description: Starter childe theme with Gulp + Bower + npm
-Version: 1.0.0
+Version: 1.1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: np011
@@ -27,13 +27,6 @@ Mixins: http://www.sitepoint.com/5-useful-sass-mixins-bootstrap/
 # Font Awesome
 --------------------------------------------------------------*/
 //@import "font-awesome";
-
-/*--------------------------------------------------------------
-# MCgriddle  https://github.com/jonsuh/mcgriddle,
-documentation: https://jonsuh.com/mcgriddle/
---------------------------------------------------------------*/
-@import "mcgriddle_custom/mccustom";
-@import "mcgriddle";
 
 /*--------------------------------------------------------------
 # Mixins
